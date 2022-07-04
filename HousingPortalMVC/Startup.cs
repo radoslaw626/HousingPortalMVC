@@ -12,6 +12,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HousingPortalMVC.Helpers;
+using HousingPortalMVC.IServices;
+using HousingPortalMVC.Services;
 
 namespace HousingPortalMVC
 {
@@ -32,9 +35,11 @@ namespace HousingPortalMVC
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddAutoMapper(typeof(ApiMappingProfile).Assembly);
             services.AddControllersWithViews();
+            services.AddTransient<IHousingOffersService, HousingOffersService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
