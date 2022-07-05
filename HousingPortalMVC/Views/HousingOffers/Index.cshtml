@@ -1,0 +1,40 @@
+﻿@model List<HousingOffersDisplayModel>
+
+
+<div class="panel panel-default mt-5" style="width:auto">
+    <div class="panel-heading">
+        Transfers
+    </div>
+    <div class="panel-body">
+        <form>
+            <table class="table">
+                <tr>
+                    <th>
+                        Drużyna 1
+                    </th>
+                    <th>
+                        Drużyna 2
+                    </th>
+                    <th>
+                        Wynik
+                    </th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.Drużyna1.Name
+                        </td>
+                        <td>
+                            @item.Drużyna2.Name
+                        </td>
+                        <td>
+                            @item.Wynik
+                        </td>
+                    </tr>
+                }
+            </table>
+        </form>
+    </div>
+
+</div>

@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using HousingPortalMVC.Entities;
+using Microsoft.AspNetCore.Http;
+using System.Web;
 
 namespace HousingPortalMVC.IServices
 {

@@ -2,10 +2,11 @@
 using HousingPortalMVC.Data;
 using HousingPortalMVC.Entities;
 using HousingPortalMVC.IServices;
+using Microsoft.EntityFrameworkCore;
 
 namespace HousingPortalMVC.Services
 {
-    public class HousingOffersService:IHousingOffersService
+    public class HousingOffersService : IHousingOffersService
     {
         private readonly ApplicationDbContext _context;
 
@@ -15,7 +16,7 @@ namespace HousingPortalMVC.Services
         }
         public IEnumerable<HousingOffer> GetAll()
         {
-            throw new System.NotImplementedException();
+            return _context.HousingOffers.Include(x => x.Images);
         }
 
         public IEnumerable<HousingOffer> GetAllByCity(string city)
@@ -40,7 +41,8 @@ namespace HousingPortalMVC.Services
 
         public void Add(HousingOffer offer)
         {
-            throw new System.NotImplementedException();
+            _context.HousingOffers.Add(offer);
+            _context.SaveChanges();
         }
     }
 }

@@ -1,0 +1,53 @@
+﻿@model AddNewHousingOfferModel
+
+
+<div class="panel panel-default mt-5" style="width:auto">
+    <div class="panel-heading">
+        @if (Model.Notification != null)
+        {
+            <p>@Model.Notification</p>
+        }
+
+    </div>
+    <div class="panel-body">
+    @using (Html.BeginForm("AddNewOffer", "HousingOffers", FormMethod.Post, new {enctype = "multipart/form-data"}))
+    {
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Tytuł ogłoszenia</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Tytuł ogłoszenia" asp-for="HousingOfferDto.Title">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Miasto</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Miasto" asp-for="HousingOfferDto.City">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Numer telefonu</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Numer telefonu" asp-for="HousingOfferDto.PhoneNumber">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Opis ogłoszenia</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Opis ogłoszenia" asp-for="HousingOfferDto.Description">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Zdjęcie</label>
+            <div class="col-sm-10">
+                <input asp-for="Image" accept="image/*" />  
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Dodaj</button>
+            </div>
+        </div>
+    }
+    </div>
+
+</div>

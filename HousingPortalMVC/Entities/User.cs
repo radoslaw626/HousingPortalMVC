@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using HousingPortalMVC.Entities;
 using Microsoft.AspNetCore.Identity;
 
-namespace HousingPortalMVC.Models
+namespace HousingPortalMVC.Entities
 {
     public class User : IdentityUser
     {

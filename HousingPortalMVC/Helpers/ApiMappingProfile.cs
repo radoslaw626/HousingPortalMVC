@@ -11,6 +11,7 @@ namespace HousingPortalMVC.Helpers
         {
             CreateMap<User, UserDto>().ReverseMap();
             CreateMap<HousingOffer, HousingOfferDto>().ReverseMap();
+            CreateMap<HousingOfferImage, HousingOfferImageDto>().ReverseMap();
         }
     }
 }
