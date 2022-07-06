@@ -14,5 +14,6 @@ namespace HousingPortalMVC.Entities
         public string Description { get; set; }
         public string City { get; set; }
         public virtual IList<HousingOfferImage> Images { get; set; }
+        public User User { get; set; }
     }
 }

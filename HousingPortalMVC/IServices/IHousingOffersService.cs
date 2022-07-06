@@ -8,10 +8,11 @@ namespace HousingPortalMVC.IServices
     public interface IHousingOffersService
     {
         IEnumerable<HousingOffer> GetAll();
+        IEnumerable<HousingOffer> GetAllByUser(string UserId);
         IEnumerable<HousingOffer> GetAllByCity(string city);
-        HousingOffer Get(string id);
-        void Update(HousingOffer offer);
-        void Delete(HousingOffer offer);
+        HousingOffer Get(long id);
+        void Update(HousingOffer offer, long offerId);
+        void Delete(long offerId);
         void Add(HousingOffer offer);
     }
 }

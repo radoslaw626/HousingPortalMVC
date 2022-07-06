@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HousingPortalMVC.Entities;
 using HousingPortalMVC.Helpers;
 using HousingPortalMVC.IServices;
 using HousingPortalMVC.Services;
@@ -35,7 +36,7 @@ namespace HousingPortalMVC
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+            services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddAutoMapper(typeof(ApiMappingProfile).Assembly);
             services.AddControllersWithViews();

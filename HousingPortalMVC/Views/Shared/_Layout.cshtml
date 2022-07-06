@@ -1,5 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using HousingPortalMVC.Entities
+@using Microsoft.AspNetCore.Identity
+<!DOCTYPE html>
 <html lang="en">
+@inject SignInManager<User> _signInManager
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,11 +22,20 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="HousingOffers" asp-action="Index">Ogłoszenia</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+
+                        @if (_signInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="HousingOffers" asp-action="AddNew">Dodaj nowe ogłoszenie</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="HousingOffers" asp-action="UserOffers">Twoje ogłoszenia</a>
+                            </li>
+
+                        }
+
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

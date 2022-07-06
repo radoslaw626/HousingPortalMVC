@@ -3,38 +3,48 @@
 
 <div class="panel panel-default mt-5" style="width:auto">
     <div class="panel-heading">
-        Transfers
+        <b>Ogłoszenia</b>
     </div>
+    
+    @using (Html.BeginForm("Index","HousingOffers", FormMethod.Get))
+    {
+        <p>
+            Znajdź po mieście:
+            <input type="text" class="form-control" placeholder="Miasto" name="searchString">
+            <button type="submit">Szukaj</button></p>
+    }
     <div class="panel-body">
-        <form>
-            <table class="table">
+        <table class="table">
                 <tr>
                     <th>
-                        Drużyna 1
+                       Zdjęcie
                     </th>
                     <th>
-                        Drużyna 2
+                        Tytuł ogłoszenia
                     </th>
                     <th>
-                        Wynik
+                        Miasto
                     </th>
+                    <th></th>
                 </tr>
                 @foreach (var item in Model)
                 {
                     <tr>
                         <td>
-                            @item.Drużyna1.Name
+                            <img src="data:@item.ImageFormat;base64,@item.Image" width="200"/>
                         </td>
                         <td>
-                            @item.Drużyna2.Name
+                            @item.Title
                         </td>
                         <td>
-                            @item.Wynik
+                            @item.City
+                        </td>
+                        <td>
+                            @Html.ActionLink("Szczegóły", "Offer", new{offerId=item.Id})
                         </td>
                     </tr>
                 }
             </table>
-        </form>
     </div>
 
 </div>

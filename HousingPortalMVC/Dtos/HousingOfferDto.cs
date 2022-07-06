@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using HousingPortalMVC.Entities;
 
 namespace HousingPortalMVC.Dtos
 {
@@ -14,5 +15,6 @@ namespace HousingPortalMVC.Dtos
         public string Description { get; set; }
         public string City { get; set; }
         public virtual IList<HousingOfferImageDto> Images { get; set; }
+        public User User { get; set; }
     }
 }

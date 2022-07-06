@@ -9,5 +9,6 @@ namespace HousingPortalMVC.Models
         public HousingOfferDto HousingOfferDto { get; set; }
         public string Notification { get; set; }
         public IFormFile Image { get; set; }
+        public string UserId { get; set; }
     }
 }
